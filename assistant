@@ -16,7 +16,7 @@ Private Sub Application_Quit()
         OutOfOffice False
     End If
     
-    'When Outlook closes, run script to check day of week and time
+    'When Outlook closes, run subroutine to check day of week and time
     'CheckDayOfWeekAndTime
     
 End Sub
