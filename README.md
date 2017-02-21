@@ -1,5 +1,4 @@
-# auto-ooo
-Out of Office Assistant
+# Out of Office Assistant
 
 Requires MS Collaboration Data Objects to be installed
 https://www.microsoft.com/en-us/download/confirmation.aspx?id=3671
