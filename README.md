@@ -4,7 +4,7 @@ Out of Office Assistant
 Includes Sub-routine (although not currently used) to auto-enable out of office based on day of week and time of day Outlook is closed;
 
 
-Sub CheckDayOfWeekAndTime()
+    Sub CheckDayOfWeekAndTime()
 
     'If it is a Thursday...
     If Weekday(Now(), vbThursday) = 1 Then
