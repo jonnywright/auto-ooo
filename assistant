@@ -1,0 +1,61 @@
+Private Sub Application_Startup()
+        
+    'When Outlook starts, turn out-of-office off
+    OutOfOffice False
+    
+End Sub
+
+
+Private Sub Application_Quit()
+    
+    Dim answer As Integer
+    answer = MsgBox("Do you want to turn on Out of Office?", vbYesNo, "Out of Office")
+    If answer = vbYes Then
+        OutOfOffice True
+    Else
+        OutOfOffice False
+    End If
+    
+    'When Outlook closes, run script to check day of week and time
+    'CheckDayOfWeekAndTime
+    
+End Sub
+
+Sub CheckDayOfWeekAndTime()
+
+'If it is a Thursday...
+If Weekday(Now(), vbThursday) = 1 Then
+    
+    'And after 13:00:00...
+    If Time > TimeValue("13:00:00") Then
+    
+    'Turn on out-of-office
+    OutOfOffice True
+    
+    Else
+    End If
+Else
+End If
+
+End Sub
+
+
+Sub OutOfOffice(bolState As Boolean)
+
+    'This tool requires MS Collaboration Data Objects to be installed
+    'Download from here https://www.microsoft.com/en-us/download/confirmation.aspx?id=3671
+    
+    Dim mapSession As Object
+    Set mapSession = CreateObject("MAPI.Session")
+    With mapSession
+        .Logon , , False, False, 0
+        .OutOfOffice = bolState
+        .Logoff
+    End With
+    Set mapSession = Nothing
+    
+    'Credits
+    'https://www.experts-exchange.com/articles/3487/Automating-Out-of-Office-in-Outlook.html
+    
+End Sub
+
